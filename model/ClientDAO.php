@@ -11,7 +11,7 @@ class ClientDAO
 	* @return PDO Object containing the client's data
 	* @return null Client not found by authentication data or fail in attempt to get client's data in database
 	*/
-	function getClienteByAuthentication($authenticationObj)
+	function getClientByAuthentication($authenticationObj)
 	{
 		// Get MySql instance to connect to database
 	    $mysql = new MySql();

@@ -2,7 +2,9 @@
 	
 	require_once('../../../controller/Authentication.php');
 	require_once('../../../controller/MySql.php');
+	require_once('../../../controller/Client.php');
 	require_once('../../../model/AuthenticationDAO.php');
+	require_once('../../../model/ClientDAO.php');
 
 	$error = '';
 	$client = null;
@@ -14,7 +16,12 @@
 
 		if($authentication->existsCredencial($authentication))
 		{
-			$client = Client::getClienteByAuthentication($authentication);
+			$client = Client::getClientByAuthentication($authentication);
+			$status = true;
+		}
+		else 
+		{
+			$error = 'Usuário ou senha incorreta!';
 		}
 	}
 	else 

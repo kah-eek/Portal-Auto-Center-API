@@ -9,8 +9,8 @@
 class Authentication
 {
   // Attributes
-  private $username;
-  private $password;
+  public $username;
+  public $password;
 
   // Default constructor
   function __construct($username, $password)

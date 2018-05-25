@@ -19,7 +19,7 @@ class AuthenticationDAO
     // Get connection to database
     $con = $mysql->getConnection();
 
-    $stmt = $con->prepare('SELECT COUNT(*) AS rows FROM tbl_usuario WHERE usuario= ? AND senha= ?');
+    $stmt = $con->prepare('SELECT COUNT(*) AS counter FROM tbl_usuario WHERE usuario= ? AND senha= ?');
     $stmt->bindParam(1,$authenticationObj->username);
     $stmt->bindParam(2,$authenticationObj->password);
     $stmt->execute();
@@ -32,7 +32,7 @@ class AuthenticationDAO
     {
       while ($rs = $stmt->fetch(PDO::FETCH_ASSOC))
       {
-        return $rs['rows'] > 0 ? true : false;
+        return $rs['counter'] > 0 ? true : false;
       }
     }
 
