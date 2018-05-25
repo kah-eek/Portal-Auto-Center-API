@@ -24,6 +24,8 @@ class User
     $this->log = $log;
     $this->idUsuario = $idUsuario;
   }
+
+  
 }
 
 

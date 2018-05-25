@@ -1,9 +1,12 @@
 <?php
 
+  // require_once('../model/AuthenticationDAO.php');
+
+
 // @author Caique M. Oliveira
 // @data 24/05/2018
 // @description Authentication class
-class ClassName extends AnotherClass
+class Authentication
 {
   // Attributes
   private $username;
@@ -24,7 +27,7 @@ class ClassName extends AnotherClass
   function existsCredencial($authenticationObj)
   {
     $authenticationDAO = new AuthenticationDAO();
-    return $authenticationDAO.existsCredencial($authenticationObj);
+    return $authenticationDAO->existsCredencial($authenticationObj);
   }
 
 }
