@@ -21,8 +21,12 @@
     {
       try
       {
-        $con = new PDO('mysql:host'.$this->HOST.';dbname='.$this->DB,$this->USERNAME,$this->PASSWORD);
+        
+        $con = new PDO('mysql:host='.$this->HOST.';dbname='.$this->DB,$this->USERNAME,$this->PASSWORD);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $con;
+      
       }catch (PDOException $e)
       {
         echo json_encode(array(
