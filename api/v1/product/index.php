@@ -10,18 +10,28 @@
 
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
-		// Get all products' minified information
-		$productList = Product::getProductsMinInfo();
-
-		foreach($productList as $producObj)
+		// Get specific product information
+		if(isset($_GET['id']))
 		{
-			$products[] = $producObj;
+			$product = new Product();
+			$products[] = $product->getProductBasicInfoById($_GET['id']);
+		}
+		else 
+		{
+			// Get all products' minified information
+			$productList = Product::getProductsMinInfo();
+
+			foreach($productList as $producObj)
+			{
+				$products[] = $producObj;
+			}
 		}
 
 		if(sizeOf($products) != 0)
 		{
 			$status = true;
 		}
+
 	}
 	else 
 	{

@@ -24,6 +24,17 @@ class Product
 		return $productDAO->getProductsMinInfo();
 	}
 
+	/**
+	* Get product's basic informations from database 
+	* @return Array Array containing the product object that came from database
+	* @return null Fail in to attemp get data from database or returned non record
+	*/
+	function getProductBasicInfoById($productId)
+	{
+		$productDAO = new ProductDAO();
+		return $productDAO->getProductBasicInfoById($productId);
+	}
+
 
 
 }
