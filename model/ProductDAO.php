@@ -19,7 +19,7 @@ class ProductDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT * FROM view_produto_min_info');
+	    $stmt = $con->prepare('SELECT * FROM view_produto_min_info GROUP BY id_produto');
 	    $stmt->execute();
 
     	// Close connection to database
