@@ -23,7 +23,7 @@ class State
 	* @return array Array containing all states existents into database
 	* @return array Array null in fail to try to get existents states into database
 	*/
-	function getStates()
+	static function getStates()
 	{
 		$stateDAO = new StateDAO();
 		return $stateDAO->getStates();

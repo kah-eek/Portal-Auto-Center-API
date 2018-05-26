@@ -11,8 +11,7 @@
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 
-		$state = new State();
-		$stateList = $state->getStates();
+		$stateList = State::getStates();
 
 		foreach($stateList as $stateObj)
 		{
