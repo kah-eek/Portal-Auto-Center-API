@@ -18,6 +18,11 @@
 		{
 			$states[] = $stateObj;
 		}
+
+		if(sizeOf($states) != 0)
+		{
+			$status = true;
+		}
 	}
 	else 
 	{
