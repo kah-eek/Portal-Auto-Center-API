@@ -16,7 +16,7 @@ class VehicleDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT placa FROM view_veiculo_cliente WHERE id_cliente = ?');
+	    $stmt = $con->prepare('SELECT placa,id_veiculo FROM view_veiculo_cliente WHERE id_cliente = ?');
 	    $stmt->bindParam(1,$clientId);
 	    $stmt->execute();
 
