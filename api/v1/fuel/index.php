@@ -34,7 +34,7 @@
 	$response = array(
 		'error'=>$error,
 		'status'=>$status,
-		'fuels'=>$fuelsList,
+		'fuels'=>$fuels,
 	);
 
 	// Show response to client
