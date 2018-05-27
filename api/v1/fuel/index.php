@@ -12,14 +12,14 @@
 	{
 		
 		// Get all fuels from database
-		$fuelsList = Fuel::getFuels();
+		$fuels = Fuel::getFuels();
 
-		foreach($fuelsList as $fuelObj)
-		{
-			$fuelsList[] = $fuelObj;
-		}
+		// foreach($fuelsList as $fuelObj)
+		// {
+		// 	$fuelsList[] = $fuelObj;
+		// }
 
-		if(sizeOf($fuelsList) != 0)
+		if(sizeOf($fuels) != 0)
 		{
 			$status = true;
 		}
