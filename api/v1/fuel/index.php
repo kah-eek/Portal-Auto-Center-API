@@ -14,8 +14,6 @@
 		// Get all fuels from database
 		$fuelsList = Fuel::getFuels();
 
-		var_dump($fuelsList);
-
 		foreach($fuelsList as $fuelObj)
 		{
 			$fuelsList[] = $fuelObj;
