@@ -16,6 +16,10 @@
 		{
 			$status = true;
 		}
+		else
+		{
+			$error = 'Veículo(s) não encontrado(s)';
+		}
 	}
 	else 
 	{
