@@ -11,6 +11,11 @@
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 		$licencePlates = Vehicle::getLicencePlateByClientId($_GET["clientId"]);
+
+		if ($licencePlates != null) 
+		{
+			$status = true;
+		}
 	}
 	else 
 	{
