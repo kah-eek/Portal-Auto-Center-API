@@ -35,7 +35,7 @@ class SupplyRegisterDAO
 								    ?,
 								    ?,
 								    ?,
-								    now()
+								    ?
 								)'
 							 );
 	    $stmt->bindParam(1,$SupplyRegisterObj->idTipoCombustivel);
@@ -43,6 +43,7 @@ class SupplyRegisterDAO
 	    $stmt->bindParam(3,$SupplyRegisterObj->valorAbastecimento);
 	    $stmt->bindParam(4,$SupplyRegisterObj->latitude);
 	    $stmt->bindParam(5,$SupplyRegisterObj->longitude);
+	    $stmt->bindParam(6,$SupplyRegisterObj->logControleAbastecimento);
 
 	    $response = $stmt->execute();
 
