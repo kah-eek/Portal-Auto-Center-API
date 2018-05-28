@@ -6,17 +6,17 @@
 class Client
 {
 	// Attributes
-	private $idCliente; 
-	private $nome; 
-	private $dtNasc; 
-	private $cpf; 
-	private $email; 
-	private $celular; 
-	private $idEndereco; 
-	private $sexo; 
-	private $telefone; 
-	private $idUsuario; 
-	private $fotoPerfil;
+	public $idCliente; 
+	public $nome; 
+	public $dtNasc; 
+	public $cpf; 
+	public $email; 
+	public $celular; 
+	public $idEndereco; 
+	public $sexo; 
+	public $telefone; 
+	public $idUsuario; 
+	public $fotoPerfil;
 
 	// Default constructor
 	function __construct($idCLiente,$nome,$dtNasc,$cpf,$email,$celular,$idEndereco,$sexo,$telefone,$idUsuario,$fotoPerfil)

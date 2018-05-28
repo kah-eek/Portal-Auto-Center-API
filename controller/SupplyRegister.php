@@ -16,7 +16,8 @@ class SupplyRegister
 	public $logControleAbastecimento;
 
 	// Default constructor 
-	function __constructor(
+	function __constructor
+	(
 		$idControleAbastecimento,
 		$idTipoCombustivel,
 		$idVeiculoCliente,

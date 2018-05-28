@@ -10,6 +10,14 @@
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
+
+    	// echo $_POST["idTipoCombustivel"];
+    	// echo $_POST["idVeiculoCliente"];
+    	// echo $_POST["valorAbastecimento"];
+    	// echo $_POST["latitude"];
+    	// echo $_POST["longitude"];
+
+	
 		$supplyRegister = new SupplyRegister(
 			null,
 			$_POST["idTipoCombustivel"],
@@ -19,6 +27,8 @@
 			$_POST["longitude"],
 			null
 		);
+
+		var_dump($supplyRegister);
 
 		if($supplyRegister->setSupplyRegister($supplyRegister))
 		{
