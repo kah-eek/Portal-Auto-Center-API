@@ -17,7 +17,7 @@
 			$_POST["valorAbastecimento"],
 			$_POST["latitude"],
 			$_POST["longitude"],
-			$_POST["logControleAbastecimento"]
+			null
 		);
 
 		if($supplyRegister->setSupplyRegister($supplyRegister))
