@@ -10,7 +10,7 @@
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-		$supplyRegister = new RegisterSupply(
+		$supplyRegister = new SupplyRegister(
 			null,
 			$_POST["idTipoCombustivel"],
 			$_POST["idVeiculoCliente"],
