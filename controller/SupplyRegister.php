@@ -16,7 +16,7 @@ class SupplyRegister
 	public $logControleAbastecimento;
 
 	// Default constructor 
-	function __constructor
+	function __construct
 	(
 		$idControleAbastecimento,
 		$idTipoCombustivel,
@@ -42,11 +42,11 @@ class SupplyRegister
 	* @return true Data inserted with succeed
 	* @return false Fail in to attemp to insert the data into database
 	*/
-	function setSupplyRegister($SupplyRegisterObj)
+	function setSupplyRegister($supplyRegisterObj)
 	{
 		$supplyRegisterDAO = new SupplyRegisterDAO();
 
-		return $supplyRegisterDAO->setSupplyRegister($SupplyRegisterObj);
+		return $supplyRegisterDAO->setSupplyRegister($supplyRegisterObj);
 	}
 
 
