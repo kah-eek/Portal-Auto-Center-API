@@ -23,6 +23,7 @@ class SupplyRegisterDAO
 								(
 									id_tipo_combustivel, 
 								    id_veiculo_cliente,
+								    quilometro_rodado,
 								    valor_abastecimento,
 								    latitude,
 								    longitude,
@@ -35,14 +36,16 @@ class SupplyRegisterDAO
 								    ?,
 								    ?,
 								    ?,
+								    ?,
 								    now()
 								)'
 							 );
 	    $stmt->bindParam(1,$SupplyRegisterObj->idTipoCombustivel);
 	    $stmt->bindParam(2,$SupplyRegisterObj->idVeiculoCliente);
-	    $stmt->bindParam(3,$SupplyRegisterObj->valorAbastecimento);
-	    $stmt->bindParam(4,$SupplyRegisterObj->latitude);
-	    $stmt->bindParam(5,$SupplyRegisterObj->longitude);
+	    $stmt->bindParam(3,$SupplyRegisterObj->quilometroRodado);
+	    $stmt->bindParam(4,$SupplyRegisterObj->valorAbastecimento);
+	    $stmt->bindParam(5,$SupplyRegisterObj->latitude);
+	    $stmt->bindParam(6,$SupplyRegisterObj->longitude);
 
 	    $response = $stmt->execute();
 

@@ -10,6 +10,7 @@ class SupplyRegister
 	public $idControleAbastecimento;
 	public $idTipoCombustivel;
 	public $idVeiculoCliente;
+	public $quilometroRodado;
 	public $valorAbastecimento;
 	public $latitude;
 	public $longitude;
@@ -21,6 +22,7 @@ class SupplyRegister
 		$idControleAbastecimento,
 		$idTipoCombustivel,
 		$idVeiculoCliente,
+		$quilometroRodado,
 		$valorAbastecimento,
 		$latitude,
 		$longitude,
@@ -30,6 +32,7 @@ class SupplyRegister
 		$this->idControleAbastecimento = $idControleAbastecimento;
 		$this->idTipoCombustivel = $idTipoCombustivel;
 		$this->idVeiculoCliente = $idVeiculoCliente;
+		$this->quilometroRodado = $quilometroRodado;
 		$this->valorAbastecimento = $valorAbastecimento;
 		$this->latitude = $latitude;
 		$this->longitude = $longitude;

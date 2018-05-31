@@ -14,9 +14,11 @@
 			null,
 			$_POST["idTipoCombustivel"],
 			$_POST["idVeiculoCliente"],
+			$_POST["quilometroRodado"],
 			$_POST["valorAbastecimento"],
 			$_POST["latitude"],
 			$_POST["longitude"],
+			null
 		);
 
 		if($supplyRegister->setSupplyRegister($supplyRegister))
