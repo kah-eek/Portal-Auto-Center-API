@@ -25,6 +25,17 @@ class Service
 		return $serviceDAO->getServices();
 	}
 
+	/**
+	* Get service's details existents into database by partner id
+	* @return PDO (FETCH_OBJ) Containing all service's details existents into database
+	* @return null Fail to try to get service's details existent into database
+	*/
+	function getServiceDetailsByPartner($partnerId)
+	{
+		$serviceDAO = new ServiceDAO();
+		return $serviceDAO->getServiceDetailsByPartner($partnerId);
+	}
+
 
 
 }
