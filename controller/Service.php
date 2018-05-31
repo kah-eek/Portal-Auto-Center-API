@@ -36,6 +36,17 @@ class Service
 		return $serviceDAO->getServiceDetailsByPartner($partnerId);
 	}
 
+	/**
+	* Get all service providers existents into database
+	* @return array Array containing all service providers existents into database
+	* @return array Array null in fail to try to get existents service providers into database
+	*/
+	static function getServiceProviders()
+	{
+		$serviceDAO = new ServiceDAO();
+		return $serviceDAO->getServiceProviders();
+	}
+
 
 
 }

@@ -42,6 +42,43 @@ class ServiceDAO
 	}
 
 	/**
+	* Get all service providers existents into database
+	* @return array Array containing all service providers existents into database
+	* @return array Array null in fail to try to get existents service providers into database
+	*/
+	function getServiceProviders()
+	{
+		// Get MySql instance to connect to database
+	    $mysql = new MySql();
+
+	    // Get connection to database
+	    $con = $mysql->getConnection();
+
+	    $stmt = $con->prepare('SELECT * FROM view_prestadores_servicos');
+	    $stmt->execute();
+
+    	// Close connection to database
+	    $con = null;
+
+	    // Keep service providers that came from database
+	    $providers = array();
+
+	    // Verify if select got some results
+	    if ($stmt->rowCount() > 0) 
+	    {
+	    	while ($providerObj = $stmt->fetch(PDO::FETCH_OBJ)) 
+	    	{
+	    		$providers[] = $providerObj;
+	    	}
+
+	    	return $providers;
+
+	    }
+
+	    return null;
+	}
+
+	/**
 	* Get service's details existents into database by partner id
 	* @return PDO (FETCH_OBJ) Containing all service's details existents into database
 	* @return null Fail to try to get service's details existent into database
