@@ -18,7 +18,7 @@ class FuelSupplyDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT * FROM view_controle_abastecimento_formatado WHERE id_cliente = ?');
+	    $stmt = $con->prepare('SELECT * FROM view_controle_abastecimento_formatado WHERE id_cliente = ? ORDER BY log_controle_abastecimento');
 	    $stmt->bindParam(1,$clientId);
 	    $stmt->execute();
 
