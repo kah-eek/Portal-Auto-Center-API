@@ -13,10 +13,10 @@
 
 		$services = Service::getServices();
 
-		foreach($services as $serviceObj)
-		{
-			$services[] = $serviceObj;
-		}
+		// foreach($services as $serviceObj)
+		// {
+		// 	$services[] = $serviceObj;
+		// }
 
 		if(sizeOf($services) != 0)
 		{

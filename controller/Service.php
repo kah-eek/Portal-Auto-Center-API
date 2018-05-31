@@ -37,14 +37,14 @@ class Service
 	}
 
 	/**
-	* Get all service providers existents into database
+	* Get all service providers existents into database by service's name
 	* @return array Array containing all service providers existents into database
 	* @return array Array null in fail to try to get existents service providers into database
 	*/
-	static function getServiceProviders()
+	static function getServiceProvidersByServiceName($serviceName)
 	{
 		$serviceDAO = new ServiceDAO();
-		return $serviceDAO->getServiceProviders();
+		return $serviceDAO->getServiceProvidersByServiceName($serviceName);
 	}
 
 

@@ -42,11 +42,11 @@ class ServiceDAO
 	}
 
 	/**
-	* Get all service providers existents into database
+	* Get all service providers existents into database by service's name
 	* @return array Array containing all service providers existents into database
 	* @return array Array null in fail to try to get existents service providers into database
 	*/
-	function getServiceProviders()
+	function getServiceProvidersByServiceName($serviceName)
 	{
 		// Get MySql instance to connect to database
 	    $mysql = new MySql();
@@ -54,7 +54,8 @@ class ServiceDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT * FROM view_prestadores_servicos');
+	    $stmt = $con->prepare('SELECT * FROM view_prestadores_servicos WHERE nome LIKE ?');
+	    $stmt->bindParam(1,$serviceName);
 	    $stmt->execute();
 
     	// Close connection to database

@@ -11,7 +11,7 @@
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 
-		$providers = Service::getServiceProviders();
+		$providers = Service::getServiceProvidersByServiceName($_GET['service']);
 
 		// foreach($providers as $providerObj)
 		// {
