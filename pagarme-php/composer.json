@@ -1,0 +1,21 @@
+{
+	"name": "Pagarme",
+	"description": "Libery Pagarme PHP",
+	"require": {
+		"phpunit/phpunit": "5.3.2",
+		"zendframework/zend-http": "2.5.*",
+		"raven/raven": "0.13.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Pagarme\\": ["src/","tests/"]
+		}
+	},
+	"authors": [
+		{
+			"name": "Lucas Santos",
+			"email": "lucas.santos@pagar.me"
+		}
+	],
+	"minimum-stability": "dev"
+}
