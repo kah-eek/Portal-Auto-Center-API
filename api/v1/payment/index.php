@@ -1,6 +1,6 @@
 <?php 
 	
-    require __DIR__.'../../../pagarme-php/Pagarme.php';
+    require_once('../../../pagarme-php/Pagarme.php');
 	require_once('../../../controller/OrderPayment.php');
 	require_once('../../../controller/Billing.php');
 	require_once('../../../controller/Customer.php');
@@ -47,7 +47,13 @@
 		);
 
 		// OrderPayment
-		$orderPayment = new OrderPayment($_POST['orderPaymentObj']);
+		$orderPayment = new OrderPayment(
+			$_POST['id'],
+			$_POST['title'],
+			$_POST['unitPrice'],
+			$_POST['quantity'],
+			$_POST['tangible']
+		);
 
 		// Make payment
 		$payment->makePayment($payment, $customer, $billing, $orderPayment);
@@ -62,7 +68,7 @@
 	$response = array(
 		'error'=>$error,
 		'status'=>$status,
-		'produtos'=>$products,
+		'mensagem'=>$message,
 	);
 
 	// Show response to client

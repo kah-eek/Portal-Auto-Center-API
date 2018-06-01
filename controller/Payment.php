@@ -46,7 +46,7 @@ class Payment
   */
   function makePayment($paymentObj, $customerObj, $billingObj, $orderPaymentObj)
   {
-  	$paymentDAO = PaymentDAO();
+  	$paymentDAO = new PaymentDAO();
   	$paymentDAO->makePayment($paymentObj, $customerObj, $billingObj, $orderPaymentObj);
   }
 }

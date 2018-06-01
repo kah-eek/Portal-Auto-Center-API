@@ -48,19 +48,18 @@ class PaymentDAO
             "street_number" => $billingObj->address['street_number']/*"1811"*/,
             "state" => $billingObj->address['state']/*"sp"*/,
             "city" => $billingObj->address['city']/*"Sao Paulo"*/,
-            "neighborhood" => $billingObj->address['neigthborhood']/*"Jardim Paulistano"*/,
+            "neighborhood" => $billingObj->address['neighborhood']/*"Jardim Paulistano"*/,
             "zipcode" => $billingObj->address['zipcode']/*"01451001"*/
         )
       ),
       "items" => array(
-        $orderPaymentObj
-        /*array(
-          "id" => "ID DO ITEM",
-          "title" => "NOME DO ITEM",
-          "unit_price" => 10000,
-          "quantity" => 1,
-          "tangible" => true
-        )*/
+        array(
+          "id" => $orderPaymentObj->id/*"ID DO ITEM"*/,
+          "title" => $orderPaymentObj->title/*"NOME DO ITEM"*/,
+          "unit_price" => $orderPaymentObj->unitPrice/*10000*/,
+          "quantity" => $orderPaymentObj->quantity/*1*/,
+          "tangible" => $orderPaymentObj->tangible/*true*/
+        )
       )
     ));
 
