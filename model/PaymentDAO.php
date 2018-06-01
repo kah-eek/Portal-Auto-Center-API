@@ -10,6 +10,9 @@ class PaymentDAO
   /**
   * Make a payment  
   * @param paymentObj Object Payment that will transferred to payment
+  * @param customerObj Object Customer that will inserted on payment
+  * @param billingObj Object Billing that will inserted on payment
+  * @param orderPaymentObj Object OrderPayment that will inserted on payment
   */
   function makePayment($paymentObj, $customerObj, $billingObj, $orderPaymentObj)
   {
