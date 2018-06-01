@@ -19,21 +19,16 @@ class OrderDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('INSERT INTO tbl_pedido
-								(
-									id_cliente,
-									id_produto,
-									data_agendada,
-									log_pedido
-								)
-								VALUES
-								(
-									?,
-								    ?,
-								    ?,
-								    now()
-								)'
-							 );
+	    $stmt = $con->prepare('CALL sp_insert_pedido
+							  (
+							  	?, 
+							    ?, 
+							    ?,
+							    @response
+							  );
+  
+							  SELECT @response'
+							  );
 	    $stmt->bindParam(1,$orderObj->idCliente);
 	    $stmt->bindParam(2,$orderObj->idProduto);
 	    $stmt->bindParam(3,$orderObj->dataAgendada);
@@ -45,7 +40,10 @@ class OrderDAO
 
 	    if ($stmt->rowCount() > 0) 
 	    {
-	    	return true;
+	    	while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) 
+		    {
+		    	return $rs->response > 0 ? true : false;
+		    }
 	    }
 
 	    return false;

@@ -1,35 +1,32 @@
 <?php 
 	
 	require_once('../../../controller/MySql.php');
-	require_once('../../../controller/Product.php');
-	require_once('../../../model/ProductDAO.php');
+	require_once('../../../controller/Order.php');
+	require_once('../../../model/OrderDAO.php');
 
 	$error = '';
-	$products = null;
+	$message = null;
 	$status = false;
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
-	{
-		// Get specific product information
-		if(isset($_GET['id']))
+	{	
+
+		$order = new Order(
+			null,
+			$_POST['idCliente'],
+			$_POST['idProduto'],
+			$_POST['dataAgendada'],
+			null
+		);
+
+		if ($order->requestNewOrder($order)) 
 		{
-			$product = new Product();
-			$products[] = $product->getProductBasicInfoById($_GET['id']);
+			$status = true;
+			$message = 'Pedido realizado com sucesso!';
 		}
 		else 
 		{
-			// Get all products' minified information
-			$productList = Product::getProductsMinInfo();
-
-			foreach($productList as $producObj)
-			{
-				$products[] = $producObj;
-			}
-		}
-
-		if(sizeOf($products) != 0)
-		{
-			$status = true;
+			$error = 'Falha ao tentar realizar o pedido';
 		}
 
 	}
@@ -42,7 +39,7 @@
 	$response = array(
 		'error'=>$error,
 		'status'=>$status,
-		'produtos'=>$products,
+		'mensagem'=>$message,
 	);
 
 	// Show response to client

@@ -14,7 +14,7 @@ class Order
 	public $logPedido;
 
 	// Constructor default
-	function __constructor
+	function __construct
 	(
 		$idPedido,
 		$idCliente,
