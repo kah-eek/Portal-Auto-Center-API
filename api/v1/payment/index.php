@@ -55,8 +55,19 @@
 			$_POST['tangible']
 		);
 
-		// Make payment
-		$payment->makePayment($payment, $customer, $billing, $orderPayment);
+		try 
+		{
+			// Make payment
+			$payment->makePayment($payment, $customer, $billing, $orderPayment);
+
+			$status = true;
+			$message = 'Compra efetuada com sucesso';
+		} 
+		catch (Exception $e) 
+		{
+			// throw $e;
+			$error = 'Falha ao tentar efetuar a compra deste produto';
+		}
 
 	}
 	else 
