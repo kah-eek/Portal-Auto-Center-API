@@ -55,7 +55,7 @@ class ProductDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT * FROM view_todos_produto WHERE id_produto = ? GROUP BY id_produto');
+	    $stmt = $con->prepare('SELECT * FROM view_produto WHERE id_produto = ? GROUP BY id_produto');
 	    $stmt->bindParam(1,$productId);
 	    $stmt->execute();
 
