@@ -7,10 +7,13 @@
   {
 
     // Attributes
-    private $HOST = 'localhost';
-    private $DB = 'dbautofast';
-    private $USERNAME = 'root';
-    private $PASSWORD = 'bcd127';
+    private $HOST = 'caiqueoliveira.mysql.dbaas.com.br';
+    private $DB = 'caiqueoliveira';
+    private $USERNAME = 'caiqueoliveira';
+    private $PASSWORD = 'caique@2018';
+    private $OPTIONS = array(
+      PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+    );
 
     /**
     * Get connection to database
@@ -22,7 +25,8 @@
       try
       {
         
-        $con = new PDO('mysql:host='.$this->HOST.';dbname='.$this->DB,$this->USERNAME,$this->PASSWORD);
+        $con = new PDO('mysql:host='.$this->HOST.';port=3306;dbname='.$this->DB,$this->USERNAME,$this->PASSWORD, $this->OPTIONS);
+
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         return $con;
