@@ -11,13 +11,26 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{	
 
-		$order = new Order(
-			null,
-			$_POST['idCliente'],
-			$_POST['idProduto'],
-			$_POST['dataAgendada'],
-			null
-		);
+		if(isset($_POST['dataAgendada']))
+		{
+			$order = new Order(
+				null,
+				$_POST['idCliente'],
+				$_POST['idProduto'],
+				$_POST['dataAgendada'],
+				null
+			);
+		}
+		else 
+		{
+			$order = new Order(
+				null,
+				$_POST['idCliente'],
+				$_POST['idProduto'],
+				null,
+				null
+			);
+		}
 
 		if ($order->requestNewOrder($order)) 
 		{
