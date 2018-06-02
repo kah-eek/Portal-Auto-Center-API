@@ -111,6 +111,44 @@ class ServiceDAO
 
 	    return null;
 	}
+
+	/**
+	* Get all accomplished service existents into database by client id
+	* @return Array Array containing all accomplished service
+	* @return null Fail to try to get accomplished service existent into database
+	*/
+	function getAccomplishedServiceByClientId($clientId)
+	{
+		// Get MySql instance to connect to database
+	    $mysql = new MySql();
+
+	    // Get connection to database
+	    $con = $mysql->getConnection();
+
+	    $stmt = $con->prepare('SELECT * FROM view_servico_prestado WHERE id_tipo_situacao_pedido = 1 AND id_cliente = ?');
+	    $stmt->bindParam(1,$clientId);
+	    $stmt->execute();
+
+    	// Close connection to database
+	    $con = null;
+
+	    // Keep accomplished services
+	    $services = array();
+
+	    // Verify if select got some results
+	    if ($stmt->rowCount() > 0) 
+	    {
+	    	while ($service = $stmt->fetch(PDO::FETCH_OBJ)) 
+	    	{
+	    		$services[] = $service;
+	    	}
+
+	    	return $services;
+
+	    }
+
+	    return null;
+	}
 }
 
 

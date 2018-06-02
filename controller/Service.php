@@ -47,6 +47,17 @@ class Service
 		return $serviceDAO->getServiceProvidersByServiceName($serviceName);
 	}
 
+	/**
+	* Get all accomplished service existents into database by client id
+	* @return Array Array containing all accomplished service
+	* @return null Fail to try to get accomplished service existent into database
+	*/
+	function getAccomplishedServiceByClientId($clientId)
+	{
+		$serviceDAO = new ServiceDAO();
+		return $serviceDAO->getAccomplishedServiceByClientId($clientId);
+	}
+
 
 
 }

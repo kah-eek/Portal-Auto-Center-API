@@ -5,23 +5,36 @@
 	require_once('../../../model/ServiceDAO.php');
 
 	$error = '';
-	$states = null;
+	$services = null;
 	$status = false;
 
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 
-		$services = Service::getServices();
-
-		// foreach($services as $serviceObj)
-		// {
-		// 	$services[] = $serviceObj;
-		// }
-
-		if(sizeOf($services) != 0)
+		if (isset($_GET['id'])) 
 		{
-			$status = true;
+			$service = new Service();
+			$services = $service->getAccomplishedServiceByClientId($_GET['id']);
+		}	
+		else 
+		{
+			$services = Service::getServices();
+
+			// foreach($services as $serviceObj)
+			// {
+			// 	$services[] = $serviceObj;
+			// }
 		}
+
+		if ($services != null) 
+		{
+			if(sizeOf($services) != 0)
+			{
+				$status = true;
+			}
+		}
+
+
 	}
 	else 
 	{
