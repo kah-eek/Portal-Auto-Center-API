@@ -48,14 +48,14 @@ class Service
 	}
 
 	/**
-	* Get all accomplished service existents into database by client id
-	* @return Array Array containing all accomplished service
-	* @return null Fail to try to get accomplished service existent into database
+	* Get all service existents into database by client id
+	* @return Array Array containing all service
+	* @return null Fail to try to get service existents into database
 	*/
-	function getAccomplishedServiceByClientId($clientId)
+	function getServicesByClientId($clientId)
 	{
 		$serviceDAO = new ServiceDAO();
-		return $serviceDAO->getAccomplishedServiceByClientId($clientId);
+		return $serviceDAO->getServicesByClientId($clientId);
 	}
 
 

@@ -14,7 +14,7 @@
 		if (isset($_GET['id'])) 
 		{
 			$service = new Service();
-			$services = $service->getAccomplishedServiceByClientId($_GET['id']);
+			$services = $service->getServicesByClientId($_GET['id']);
 		}	
 		else 
 		{

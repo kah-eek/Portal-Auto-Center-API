@@ -113,11 +113,11 @@ class ServiceDAO
 	}
 
 	/**
-	* Get all accomplished service existents into database by client id
-	* @return Array Array containing all accomplished service
-	* @return null Fail to try to get accomplished service existent into database
+	* Get all service existents into database by client id
+	* @return Array Array containing all service
+	* @return null Fail to try to get service existents into database
 	*/
-	function getAccomplishedServiceByClientId($clientId)
+	function getServicesByClientId($clientId)
 	{
 		// Get MySql instance to connect to database
 	    $mysql = new MySql();
@@ -125,7 +125,7 @@ class ServiceDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT * FROM view_servico_prestado WHERE id_tipo_situacao_pedido = 1 AND id_cliente = ?');
+	    $stmt = $con->prepare('SELECT * FROM view_servico_prestado WHERE (id_tipo_situacao_pedido = 1 OR id_tipo_situacao_pedido = 6) AND id_cliente = ?');
 	    $stmt->bindParam(1,$clientId);
 	    $stmt->execute();
 
