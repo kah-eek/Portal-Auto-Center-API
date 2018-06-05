@@ -75,6 +75,44 @@ class ProductDAO
 	    return null;
 	} 
 
+	/**
+	* Get all sold products from database by client id
+	* @return Array Array containing all sold products
+	* @return null Fail to try to get all sold products from database
+	*/
+	function getProductsByClientId($clientId)
+	{
+		// Get MySql instance to connect to database
+	    $mysql = new MySql();
+
+	    // Get connection to database
+	    $con = $mysql->getConnection();
+
+	    $stmt = $con->prepare('SELECT * FROM view_produtos_vendidos WHERE (id_tipo_situacao_pedido = 7 OR id_tipo_situacao_pedido = 9) AND id_cliente = ?');
+	    $stmt->bindParam(1,$clientId);
+	    $stmt->execute();
+
+    	// Close connection to database
+	    $con = null;
+
+	    // Keep all sold products
+	    $products = array();
+
+	    // Verify if select got some results
+	    if ($stmt->rowCount() > 0) 
+	    {
+	    	while ($product = $stmt->fetch(PDO::FETCH_OBJ)) 
+	    	{
+	    		$products[] = $product;
+	    	}
+
+	    	return $products;
+
+	    }
+
+	    return null;
+	}
+
 }
 
 ?>
