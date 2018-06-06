@@ -7,17 +7,17 @@ class User
 {
 
   // Attributes
-  private $idUsuario;
-  private $usuario;
-  private $senha;
-  private $log;
-  private $idNivelUsuario;
-  private $ativo;
+  public $idUsuario;
+  public $usuario;
+  public $senha;
+  public $log;
+  public $idNivelUsuario;
+  public $ativo;
 
   // Default constructor
   function __construct($usuario,$senha,$ativo,$idNivelUsuario,$log,$idUsuario)
   {
-    $this->usuario = $usurio;
+    $this->usuario = $usuario;
     $this->senha = $senha;
     $this->ativo = $ativo;
     $this->idNivelUsuario = $idNivelUsuario;

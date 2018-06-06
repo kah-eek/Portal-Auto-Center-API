@@ -19,7 +19,7 @@ class Client
 	public $fotoPerfil;
 
 	// Default constructor
-	function __construct($idCLiente,$nome,$dtNasc,$cpf,$email,$celular,$idEndereco,$sexo,$telefone,$idUsuario,$fotoPerfil)
+	function __construct($idCliente,$nome,$dtNasc,$cpf,$email,$celular,$idEndereco,$sexo,$telefone,$idUsuario,$fotoPerfil)
 	{
 		$this->idCliente = $idCliente;
 		$this->nome = $nome;
@@ -43,6 +43,17 @@ class Client
 	{
 		$clientDAO = new ClientDAO();
 		return $clientDAO->getClientByAuthentication($authenticationObj);
+	}
+
+	/**
+	* Insert new client into database  
+	* @return PDO Object containing the client's id
+	* @return -1 Client not was inserted into database with success
+	*/
+	function signUp($addressObj,$userObj,$clientObj)
+	{
+		$clientDAO = new ClientDAO();
+		return $clientDAO->signUp($addressObj,$userObj,$clientObj);
 	}
 }
 
