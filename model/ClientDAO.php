@@ -61,7 +61,7 @@ class ClientDAO
 	    {
 	    	while ($sp = $stmt->fetch(PDO::FETCH_OBJ)) 
 	    	{
-	    		return $sp; 
+	    		return $sp->response; 
 	    	}
 	    }
 
