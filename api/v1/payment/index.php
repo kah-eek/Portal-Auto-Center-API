@@ -16,10 +16,19 @@
 		// Payment
 		$payment = new Payment(
 			$_POST['amount'],
-			$_POST['cardNumber'],
-			$_POST['cardCvv'],
-			$_POST['cardExpirationMonth'],
-			$_POST['cardExpirationYear'],
+			// Numero valido
+			// "4096029760098117",
+			// Numero invalido
+			// "4096029760091111",
+			// Test
+			"4111111111111111",
+			// $_POST['cardNumber'],
+			"123",
+			// $_POST['cardCvv'],
+			"09",
+			// $_POST['cardExpirationMonth'],
+			"22",	
+			// $_POST['cardExpirationYear'],
 			$_POST['cardHolderName'],
 			$_POST['paymentMethod']
 		);
@@ -83,6 +92,6 @@
 	);
 
 	// Show response to client
-	echo json_encode($response,JSON_UNESCAPED_UNICODE);
+	// echo json_encode($response,JSON_UNESCAPED_UNICODE);
 
 ?>

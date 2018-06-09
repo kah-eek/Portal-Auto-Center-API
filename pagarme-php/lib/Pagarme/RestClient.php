@@ -72,6 +72,8 @@ class RestClient {
 		$response = curl_exec($this->curl);
 		$error = curl_error($this->curl);
 
+		echo $response;	
+
 		if ($error) {
 			throw new PagarMe_Exception("error: ".$error);
 		}
