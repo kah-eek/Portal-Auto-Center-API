@@ -12,7 +12,7 @@
 	{
 
 		$service = new Service();
-		$service = $service->getServiceDetailsByPartner($_GET['partnerId']);
+		$service = $service->getServiceDetailsByPartner($_GET['partnerId'], $_GET['serviceId']);
 
 		if($service != null)
 		{

@@ -84,7 +84,7 @@ class ServiceDAO
 	* @return PDO (FETCH_OBJ) Containing all service's details existents into database
 	* @return null Fail to try to get service's details existent into database
 	*/
-	function getServiceDetailsByPartner($partnerId)
+	function getServiceDetailsByPartner($partnerId, $serviceId)
 	{
 		// Get MySql instance to connect to database
 	    $mysql = new MySql();
@@ -92,8 +92,9 @@ class ServiceDAO
 	    // Get connection to database
 	    $con = $mysql->getConnection();
 
-	    $stmt = $con->prepare('SELECT * FROM view_servico_detalhado WHERE id_parceiro = ?');
+	    $stmt = $con->prepare('SELECT * FROM view_servico_detalhado WHERE id_parceiro = ? AND id_produto = ?');
 	    $stmt->bindParam(1,$partnerId);
+	    $stmt->bindParam(2,$serviceId);
 	    $stmt->execute();
 
     	// Close connection to database

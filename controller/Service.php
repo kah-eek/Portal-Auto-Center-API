@@ -30,10 +30,10 @@ class Service
 	* @return PDO (FETCH_OBJ) Containing all service's details existents into database
 	* @return null Fail to try to get service's details existent into database
 	*/
-	function getServiceDetailsByPartner($partnerId)
+	function getServiceDetailsByPartner($partnerId, $serviceId)
 	{
 		$serviceDAO = new ServiceDAO();
-		return $serviceDAO->getServiceDetailsByPartner($partnerId);
+		return $serviceDAO->getServiceDetailsByPartner($partnerId, $serviceId);
 	}
 
 	/**
